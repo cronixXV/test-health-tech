@@ -1,8 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import type { MessageListProps } from "./types";
 import { MessageItem } from "./MessageItem";
+import { useEffect, useRef } from "react";
 
 export const MessageList = ({ messages }: MessageListProps) => {
+  const endRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <Box
       sx={{
@@ -17,6 +24,7 @@ export const MessageList = ({ messages }: MessageListProps) => {
       {messages.map((message) => (
         <MessageItem key={message.id} message={message} />
       ))}
+      <div ref={endRef} />
 
       {messages.length === 0 && (
         <Box
@@ -28,7 +36,9 @@ export const MessageList = ({ messages }: MessageListProps) => {
             color: "text.secondary",
           }}
         >
-          <Typography variant="body1">Начните диалог</Typography>
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Начните разговор
+          </Typography>
         </Box>
       )}
     </Box>

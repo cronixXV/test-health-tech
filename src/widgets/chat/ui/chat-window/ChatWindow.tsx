@@ -1,4 +1,4 @@
-import { Box, Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack, CircularProgress } from "@mui/material";
 import { useChatStore } from "../../../../features/chat";
 import { MessageList } from "../../../../features/chat";
 import { InputForm } from "../../../../features/chat";
@@ -28,6 +28,15 @@ export const ChatWindow = () => {
       </Box>
 
       <MessageList messages={messages} />
+
+      {status === "loading" && (
+        <Box sx={{ display: "flex", justifyContent: "flex-start", p: 2 }}>
+          <CircularProgress size={24} />
+          <Typography variant="body1" sx={{ ml: 2 }}>
+            Думаю...
+          </Typography>
+        </Box>
+      )}
 
       {error && (
         <Typography color="error" sx={{ p: 2, textAlign: "center" }}>
