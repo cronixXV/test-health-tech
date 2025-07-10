@@ -33,7 +33,6 @@ export const useChatStore = (): ChatState & {
         };
         addMessage(userMessage);
 
-        // TODO: Реальная интеграция с API
         // Имитация ответа бота
         setTimeout(() => {
           const botMessage: Message = {
@@ -49,7 +48,10 @@ export const useChatStore = (): ChatState & {
         setState((prev) => ({
           ...prev,
           status: "failed",
-          error: "Ошибка при отправке сообщения",
+          error:
+            error instanceof Error
+              ? error.message
+              : "Ошибка при отправке сообщения",
         }));
       }
     },

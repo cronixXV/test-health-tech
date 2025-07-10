@@ -1,5 +1,4 @@
 import { Box, Typography, Paper, Avatar } from "@mui/material";
-// import { MarkdownRenderer } from "../../../../../shared/ui/markdown-renderer/MarkdownRenderer";
 
 import type { MessageItemProps } from "./types";
 

@@ -1,6 +1,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { ChatWindow } from "../widgets/chat/ui/chat-window/ChatWindow";
-import { theme } from "../shared/theme/theme";
+import { ChatWindow } from "../widgets";
+import { theme } from "../shared";
 
 export const App = () => {
   return (

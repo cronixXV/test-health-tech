@@ -1,7 +1,7 @@
 import { Box, Typography, Stack } from "@mui/material";
-import { useChatStore } from "../../../../features/chat/model/store/useChatStore";
-import { MessageList } from "../../../../features/chat/ui/input-form/message-list/MessageList";
-import { InputForm } from "../../../../features/chat/ui/input-form/InputForm";
+import { useChatStore } from "../../../../features/chat";
+import { MessageList } from "../../../../features/chat";
+import { InputForm } from "../../../../features/chat";
 
 export const ChatWindow = () => {
   const { messages, status, sendMessage, error } = useChatStore();
@@ -24,7 +24,7 @@ export const ChatWindow = () => {
           textAlign: "start",
         }}
       >
-        <Typography variant="h6">Чат-приложение</Typography>
+        <Typography variant="h6">Чат</Typography>
       </Box>
 
       <MessageList messages={messages} />
